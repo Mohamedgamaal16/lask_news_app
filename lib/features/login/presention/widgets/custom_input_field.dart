@@ -9,7 +9,7 @@ class CustomInputField extends StatefulWidget {
       this.suffixIcon = false,
       this.isDense,
       this.obscureText = false,
-      this.controller});
+      this.controller, required this.prefixIcon});
 
   final String labelText;
   final String hintText;
@@ -17,6 +17,7 @@ class CustomInputField extends StatefulWidget {
   final bool? isDense;
   final bool obscureText;
   final TextEditingController? controller;
+  final Icon prefixIcon;
 
   @override
   State<CustomInputField> createState() => _CustomInputFieldState();
@@ -27,15 +28,19 @@ class _CustomInputFieldState extends State<CustomInputField> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            widget.labelText,
-            style: AppStyles.interStyleSemiBold18(context),
-          ),
-          TextFormField(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.labelText,
+          style: AppStyles.interStyleSemiBold18(context),
+        ),
+        Container(
+          decoration: ShapeDecoration(
+              shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          )),
+          child: TextFormField(
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: (textValue) {
               if (textValue == null || textValue.isEmpty) {
@@ -45,7 +50,13 @@ class _CustomInputFieldState extends State<CustomInputField> {
               }
             },
             obscureText: (widget.obscureText && _obscureText),
-            decoration: InputDecoration(
+            decoration: InputDecoration(prefixIcon:widget.prefixIcon,
+                border: removeBorder(),
+                enabledBorder: removeBorder(),
+                focusedBorder: removeBorder(),
+                disabledBorder: removeBorder(),
+                fillColor: const Color(0xFFF9FCFE),
+                filled: true,
                 isDense: (widget.isDense != null) ? widget.isDense : false,
                 suffixIcon: widget.suffixIcon
                     ? IconButton(
@@ -69,9 +80,14 @@ class _CustomInputFieldState extends State<CustomInputField> {
                 hintStyle: AppStyles.interStyleSemiBold18(context).copyWith(
                     fontWeight: FontWeight.w400, color: Colors.black26)),
             controller: widget.controller,
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
+  }
+
+  UnderlineInputBorder removeBorder() {
+    return const UnderlineInputBorder(
+        borderSide: BorderSide(style: BorderStyle.none));
   }
 }
