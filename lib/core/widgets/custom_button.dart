@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.color});
+  const CustomButton({super.key, required this.color, required this.labeName});
   final Color color;
+  final String labeName ;
   @override
   Widget build(BuildContext context) {
     return SizedBox(height: 55,
@@ -15,8 +16,8 @@ class CustomButton extends StatelessWidget {
         ),
         onPressed: () {},
         child: Text(
-          'Sign in',
-          style: AppStyles.interStyleRegular16(context)
+          labeName,
+          style: AppStyles.interStyleSemiBold16(context)
               .copyWith(color: Colors.white),
         ),
       ),

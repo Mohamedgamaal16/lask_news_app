@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trendspot_newes_app/core/utils/app_router.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
-import 'package:trendspot_newes_app/features/login/presention/widgets/custom_button.dart';
-import 'package:trendspot_newes_app/features/login/presention/widgets/custom_input_field.dart';
-import 'package:trendspot_newes_app/features/login/presention/widgets/sign_in_header.dart';
+import 'package:trendspot_newes_app/core/widgets/custom_button.dart';
+import 'package:trendspot_newes_app/core/widgets/custom_input_field.dart';
+import 'package:trendspot_newes_app/features/signin/presention/widgets/sign_in_header.dart';
 
 class LogInViewBody extends StatelessWidget {
   const LogInViewBody({super.key});
@@ -39,7 +41,7 @@ class LogInViewBody extends StatelessWidget {
             children: [
               Expanded(
                   child: CustomButton(
-                color: Color(0xFF96A0A6),
+                color: Color(0xFF96A0A6), labeName: 'Sign in',
               )),
             ],
           ),
@@ -69,10 +71,14 @@ class CustomFooter extends StatelessWidget {
           style: AppStyles.interStyleRegular16(context)
               .copyWith(color: const Color(0xFF999999)),
         ),
-        Text(
-          'Sign Up',
-          style: AppStyles.interStyleSemiBold16(context)
-              .copyWith(color: Colors.black),
+        GestureDetector(onTap: () {
+           GoRouter.of(context).push(AppRouter.kSignUp);
+        },
+          child: Text(
+            'Sign Up',
+            style: AppStyles.interStyleSemiBold16(context)
+                .copyWith(color: Colors.black),
+          ),
         )
       ],
     );
