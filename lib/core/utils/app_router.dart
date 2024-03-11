@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:trendspot_newes_app/features/home/presention/home_view.dart';
 import 'package:trendspot_newes_app/features/signin/presention/login_view.dart';
 import 'package:trendspot_newes_app/features/signup/presention/signup_view.dart';
 import 'package:trendspot_newes_app/features/splash/presention/splash.dart';
@@ -6,6 +7,8 @@ import 'package:trendspot_newes_app/features/splash/presention/splash.dart';
 abstract class AppRouter {
   static const kLogInView = '/logIn';
   static const kSignUp = '/signUp';
+    static const kHomeView = '/homeView';
+
 
   static final GoRouter router = GoRouter(routes: [
     GoRoute(
@@ -19,6 +22,10 @@ abstract class AppRouter {
     GoRoute(
       path: kSignUp,
       builder: (context, state) => const SignUpView(),
+    ),
+    GoRoute(
+      path: kHomeView,
+      builder: (context, state) => const HomeView(),
     ),
   ]);
 }
