@@ -5,12 +5,14 @@ import 'package:meta/meta.dart';
 import 'package:trendspot_newes_app/core/api/api_consumer.dart';
 import 'package:trendspot_newes_app/core/api/endpoint.dart';
 import 'package:trendspot_newes_app/core/errors/exceptions.dart';
+import 'package:trendspot_newes_app/core/functions/upload_image_to_api.dart';
+import 'package:trendspot_newes_app/features/signup/data/repos/signup_repo.dart';
 import 'package:trendspot_newes_app/features/signup/data/signup_model.dart';
 
 part 'signup_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {
-  SignupCubit(this.apiConsumer) : super(SignupInitial());
+  SignupCubit(this.signUpRepo) : super(SignupInitial());
   XFile? profilePic;
   GlobalKey<FormState> signUpFormKey = GlobalKey();
   TextEditingController signUpEmail = TextEditingController();
@@ -18,22 +20,18 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController signUpconfirmPassword = TextEditingController();
   TextEditingController signUpName = TextEditingController();
   TextEditingController signUpPhoneNumber = TextEditingController();
-  final ApiConsumer apiConsumer;
+  final SignUpRepo signUpRepo;
   signUp() async {
     emit(SignupLoading());
-    try {
-      final response = await apiConsumer.post(EndPoint.signUp, data: {
-        ApiKey.name: signUpName.text,
-        ApiKey.phone: signUpPhoneNumber.text,
-        ApiKey.email: signUpEmail.text,
-        ApiKey.password: signUpPassword.text,
-        ApiKey.confirmPassword: signUpconfirmPassword.text,
-      });
-      final signUpModel = SignUpModel.fromJson(response);
-      emit(SignupSucces(message: signUpModel.message));
-    } on ServerExceptions catch (e) {
-      emit(SignupFaliure(errMSg: e.errorModel.errorMessage));
-    }
+    final response = await signUpRepo.signUp(
+        signUpName: signUpName.text,
+        signUpPhoneNumber: signUpPhoneNumber.text,
+        signUpEmail: signUpEmail.text,
+        signUpPassword: signUpPassword.text,
+        signUpconfirmPassword: signUpconfirmPassword.text,
+        profilePic: profilePic!);
+    response.fold((errMsg) => emit(SignupFaliure(errMSg: errMsg)),
+        (SignUpModel) => emit(SignupSucces(message: SignUpModel.message)));
   }
 
   uploadProfilePic(XFile image) {

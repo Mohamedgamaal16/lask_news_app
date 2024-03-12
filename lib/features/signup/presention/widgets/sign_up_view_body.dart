@@ -42,7 +42,7 @@ class SignUpViewBody extends StatelessWidget {
                   controller: context.read<SignupCubit>().signUpName,
                   labelText: 'Name',
                   hintText: 'Write your Name',
-                  prefixIcon: const Icon(Icons.email_outlined),
+                  prefixIcon: const Icon(Icons.man_2_outlined),
                 ),
                 const SizedBox(
                   height: 16,
@@ -59,10 +59,9 @@ class SignUpViewBody extends StatelessWidget {
                 CustomInputField(
                   controller: context.read<SignupCubit>().signUpPhoneNumber,
                   labelText: 'Phone Number',
-                  hintText: 'Write your password',
-                  prefixIcon: const Icon(Icons.lock_outline),
-                  suffixIcon: true,
-                  obscureText: true,
+                  hintText: 'Write your phone number',
+                  prefixIcon: const Icon(Icons.phone_android_outlined),
+                  
                 ),
                 const SizedBox(
                   height: 16,
@@ -92,7 +91,7 @@ class SignUpViewBody extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                        child: CustomButton(
+                        child:state is SignupLoading ? const CircularProgressIndicator(): CustomButton(
                       onPressed: () {
                         context.read<SignupCubit>().signUp();
                       },

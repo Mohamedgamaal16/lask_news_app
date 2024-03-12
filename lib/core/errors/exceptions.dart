@@ -1,53 +1,51 @@
 import 'package:dio/dio.dart';
 import 'package:trendspot_newes_app/core/errors/error_model.dart';
 
-class ServerExceptions {
-  final ErrorModel errorModel ;
+class ServerException implements Exception {
+  final ErrorModel errModel;
 
-  ServerExceptions({required this.errorModel});
-  
+  ServerException({required this.errModel});
 }
 
-
-  void handleDioExcpetion(DioException e) {
-     switch(e.type){
-      case DioExceptionType.connectionTimeout:
-          throw ServerExceptions(errorModel: ErrorModel.fromJson(e.response!.data));
-      case DioExceptionType.sendTimeout:
-          throw ServerExceptions(errorModel: ErrorModel.fromJson(e.response!.data));
-      case DioExceptionType.receiveTimeout:
-          throw ServerExceptions(errorModel: ErrorModel.fromJson(e.response!.data));
-      case DioExceptionType.badCertificate:
-          throw ServerExceptions(errorModel: ErrorModel.fromJson(e.response!.data));
-      case DioExceptionType.cancel:
-          throw ServerExceptions(errorModel: ErrorModel.fromJson(e.response!.data));
-      case DioExceptionType.connectionError:
-          throw ServerExceptions(errorModel: ErrorModel.fromJson(e.response!.data));
-      case DioExceptionType.unknown:
-          throw ServerExceptions(errorModel: ErrorModel.fromJson(e.response!.data));
-      case DioExceptionType.badResponse:
-        switch(e.response?.statusCode){
-           case 400: // Bad request
-            throw ServerExceptions(
-                errorModel: ErrorModel.fromJson(e.response!.data));
-          case 401: //unauthorized
-            throw ServerExceptions(
-               errorModel: ErrorModel.fromJson(e.response!.data));
-          case 403: //forbidden
-            throw ServerExceptions(
-               errorModel: ErrorModel.fromJson(e.response!.data));
-          case 404: //not found
-            throw ServerExceptions(
-               errorModel: ErrorModel.fromJson(e.response!.data));
-          case 409: //cofficient
-            throw ServerExceptions(
-               errorModel: ErrorModel.fromJson(e.response!.data));
-          case 422: //  Unprocessable Entity
-            throw ServerExceptions(
-               errorModel: ErrorModel.fromJson(e.response!.data));
-          case 504: // Server exception
-            throw ServerExceptions(
-               errorModel: ErrorModel.fromJson(e.response!.data));
-        }
-    }
+void handleDioExceptions(DioException e) {
+  switch (e.type) {
+    case DioExceptionType.connectionTimeout:
+      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+    case DioExceptionType.sendTimeout:
+      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+    case DioExceptionType.receiveTimeout:
+      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+    case DioExceptionType.badCertificate:
+      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+    case DioExceptionType.cancel:
+      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+    case DioExceptionType.connectionError:
+      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+    case DioExceptionType.unknown:
+      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+    case DioExceptionType.badResponse:
+      switch (e.response?.statusCode) {
+        case 400: // Bad request
+          throw ServerException(
+              errModel: ErrorModel.fromJson(e.response!.data));
+        case 401: //unauthorized
+          throw ServerException(
+              errModel: ErrorModel.fromJson(e.response!.data));
+        case 403: //forbidden
+          throw ServerException(
+              errModel: ErrorModel.fromJson(e.response!.data));
+        case 404: //not found
+          throw ServerException(
+              errModel: ErrorModel.fromJson(e.response!.data));
+        case 409: //cofficient
+          throw ServerException(
+              errModel: ErrorModel.fromJson(e.response!.data));
+        case 422: //  Unprocessable Entity
+          throw ServerException(
+              errModel: ErrorModel.fromJson(e.response!.data));
+        case 504: // Server exception
+          throw ServerException(
+              errModel: ErrorModel.fromJson(e.response!.data));
+      }
   }
+}

@@ -22,62 +22,68 @@ class LogInViewBody extends StatelessWidget {
             ),
           );
           GoRouter.of(context).push(AppRouter.kHomeView);
-        }else if (state is SigninFaliure){ ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(state.errMsg),
-              ),
-            );}
+        } else if (state is SigninFaliure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.errMsg),
+            ),
+          );
+        }
       },
       builder: (context, state) {
-        return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SignInHeader(),
-              const SizedBox(
-                height: 32,
-              ),
-              CustomInputField(
-                controller: context.read<SigninCubit>().signInEmail,
-                labelText: 'Email',
-                hintText: 'Write your email',
-                prefixIcon: const Icon(Icons.email_outlined),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              CustomInputField(
-                controller: context.read<SigninCubit>().signInPassword,
-                labelText: 'Password',
-                hintText: 'Write your password',
-                prefixIcon: const Icon(Icons.lock_outline),
-                suffixIcon: true,
-                obscureText: true,
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-               Row(
-                children: [
-                  Expanded(
-                      child: state is SigninLoading
-                                ? const CircularProgressIndicator() :CustomButton(
-                        onPressed: () {
-                          context.read<SigninCubit>().signIn();
-                        },
-                    color: const Color(0xFF96A0A6),
-                    labeName: 'Sign in',
-                  )),
-                ],
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-              const CustomFooter(),
-              const SizedBox(
-                height: 55,
-              )
-            ]);
+        return Form(
+          key: context.read<SigninCubit>().signInFormKey,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SignInHeader(),
+                const SizedBox(
+                  height: 32,
+                ),
+                CustomInputField(
+                  controller: context.read<SigninCubit>().signInEmail,
+                  labelText: 'Email',
+                  hintText: 'Write your email',
+                  prefixIcon: const Icon(Icons.email_outlined),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                CustomInputField(
+                  controller: context.read<SigninCubit>().signInPassword,
+                  labelText: 'Password',
+                  hintText: 'Write your password',
+                  prefixIcon: const Icon(Icons.lock_outline),
+                  suffixIcon: true,
+                  obscureText: true,
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                        child: state is SigninLoading
+                            ? const CircularProgressIndicator()
+                            : CustomButton(
+                                onPressed: () {
+                                  context.read<SigninCubit>().signIn();
+                                },
+                                color: const Color(0xFF96A0A6),
+                                labeName: 'Sign in',
+                              )),
+                  ],
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
+                const CustomFooter(),
+                const SizedBox(
+                  height: 55,
+                )
+              ]),
+        );
       },
     );
   }
