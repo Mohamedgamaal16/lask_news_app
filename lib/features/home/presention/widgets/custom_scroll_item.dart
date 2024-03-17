@@ -7,28 +7,31 @@ class CustomScrollItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          // height: 100,width: 100,
-          height: MediaQuery.of(context).size.width * .5,
-          width: MediaQuery.of(context).size.width * .5,
-          decoration: ShapeDecoration(
-            image: const DecorationImage(
-              image: AssetImage(
-                  'assets/images/language-studies-japan-1220x732.jpg'),
-              fit: BoxFit.fill,
+    return AspectRatio(
+      aspectRatio: 269 / 385,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AspectRatio(
+            aspectRatio: 1,
+            child: Container(
+              decoration: ShapeDecoration(
+                image: const DecorationImage(
+                  image: AssetImage(
+                      'assets/images/language-studies-japan-1220x732.jpg'),
+                  fit: BoxFit.fill,
+                ),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+              ),
             ),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           ),
-        ),
-        const SizedBox(
-          height: 16,
-        ),
-        const CustomText()
-      ],
+          const SizedBox(
+            height: 16,
+          ),
+          const CustomText()
+        ],
+      ),
     );
   }
 }

@@ -7,27 +7,23 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.width * .3,
-      width: MediaQuery.of(context).size.width * .5,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Experience the Serenity of Japan's Traditional Countryside",
-            style: AppStyles.interStyleSemiBold24(context),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            "Technology",
-            style: AppStyles.interStyleRegular14(context),
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Experience the Serenity of Japan's Traditional Countryside",
+          style: AppStyles.interStyleSemiBold24(context),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        Text(
+          "Technology",
+          style: AppStyles.interStyleRegular14(context),
+        ),
+      ],
     );
   }
 }
