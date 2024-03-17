@@ -62,6 +62,7 @@ abstract class AppStyles {
       fontSize: 24,
       fontFamily: 'Inter',
       fontWeight: FontWeight.w600,
+      
     );
   }
 
