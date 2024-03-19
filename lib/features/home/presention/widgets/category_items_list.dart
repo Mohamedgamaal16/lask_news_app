@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trendspot_newes_app/features/home/presention/widgets/custom_scroll_item.dart';
+import 'package:trendspot_newes_app/features/home/presention/widgets/custom_category_item.dart';
+import 'package:trendspot_newes_app/features/home/presention/widgets/custom_for_you_scroll_item.dart';
 
 class CategoriesItemsList extends StatelessWidget {
   const CategoriesItemsList({super.key});
@@ -14,7 +15,10 @@ class CategoriesItemsList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return const Padding(
               padding: EdgeInsets.only(right: 24.0),
-              child: CustomScrollItem(),
+              child: CustomCategoryScrollItem(
+                title: "Experience the Serenity of Japan's Traditional Countryside",
+                author: 'Technology',
+              ),
             );
           }),
     );

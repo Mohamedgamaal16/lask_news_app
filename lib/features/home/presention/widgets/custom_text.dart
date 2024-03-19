@@ -1,9 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
+import 'package:trendspot_newes_app/features/home/data/just_for_you_model.dart';
 
 class CustomText extends StatelessWidget {
-  const CustomText({super.key});
+  const CustomText({
+    super.key,
+    required this.title,
+    required this.author,
+  });
+  final String title, author;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +16,7 @@ class CustomText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Experience the Serenity of Japan's Traditional Countryside",
+          title,
           style: AppStyles.interStyleSemiBold24(context),
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
@@ -20,8 +25,10 @@ class CustomText extends StatelessWidget {
           height: 8,
         ),
         Text(
-          "Technology",
+          author,
           style: AppStyles.interStyleRegular14(context),
+           maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     );

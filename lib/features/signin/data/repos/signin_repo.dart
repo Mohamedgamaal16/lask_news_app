@@ -7,11 +7,11 @@ import 'package:trendspot_newes_app/core/errors/exceptions.dart';
 import 'package:trendspot_newes_app/features/signin/data/models/signin_model.dart';
 
 class SignInRepo {
-final ApiConsumer api ;
+  final ApiConsumer api;
 
   SignInRepo({required this.api});
 
- Future<Either<String, SignInModel>> signIn({
+  Future<Either<String, SignInModel>> signIn({
     required String email,
     required String password,
   }) async {
@@ -19,14 +19,15 @@ final ApiConsumer api ;
       final response = await api.post(
         EndPoint.signIn,
         data: {
-          ApiKey.email: email,
-          ApiKey.password: password,
+          RegestrionApiKey.email: email,
+          RegestrionApiKey.password: password,
         },
       );
       final user = SignInModel.fromJson(response);
       final decodedToken = JwtDecoder.decode(user.token);
-      CacheHelper().saveData(key: ApiKey.token, value: user.token);
-      CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
+      CacheHelper().saveData(key: RegestrionApiKey.token, value: user.token);
+      CacheHelper().saveData(
+          key: RegestrionApiKey.id, value: decodedToken[RegestrionApiKey.id]);
       return Right(user);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage);

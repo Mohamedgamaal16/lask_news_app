@@ -1,13 +1,16 @@
 class EndPoint {
-  static String baseUrl = "https://food-api-omega.vercel.app/api/v1/";
+  static String regestrionBaseUrl = "https://food-api-omega.vercel.app/api/v1/";
   static String signIn = "user/signin";
   static String signUp = "user/signup";
+  static String justForYouBaseUrl = "https://newsapi.org/v2/";
+  static String topHeadlines = "top-headlines";
+
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
 }
 
-class ApiKey {
+class RegestrionApiKey {
   static String status = "status";
   static String errorMessage = "ErrorMessage";
   static String email = "email";

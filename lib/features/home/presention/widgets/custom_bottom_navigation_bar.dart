@@ -26,7 +26,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
           child: ClipRRect(
             child: GNav(
-              padding: const EdgeInsets.symmetric(vertical: 10 ,horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
               activeColor: Colors.white,
               textStyle: AppStyles.interStyleSemiBold12(context),
               gap: 8,
@@ -47,7 +47,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   icon: FontAwesomeIcons.bookmark,
                   text: 'Bookmark',
                   iconColor: Colors.white,
-                ),GButton(
+                ),
+                GButton(
                   icon: FontAwesomeIcons.user,
                   text: 'Profile',
                   iconColor: Colors.white,

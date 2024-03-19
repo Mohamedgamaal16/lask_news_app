@@ -5,6 +5,6 @@ class SignUpModel {
 
   SignUpModel({required this.message});
   factory SignUpModel.fromJson(Map<String, dynamic> jsonData) {
-    return SignUpModel(message: jsonData[ApiKey.message]);
+    return SignUpModel(message: jsonData[RegestrionApiKey.message]);
   }
 }

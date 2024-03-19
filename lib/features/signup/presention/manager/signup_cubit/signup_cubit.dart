@@ -2,12 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
-import 'package:trendspot_newes_app/core/api/api_consumer.dart';
-import 'package:trendspot_newes_app/core/api/endpoint.dart';
-import 'package:trendspot_newes_app/core/errors/exceptions.dart';
-import 'package:trendspot_newes_app/core/functions/upload_image_to_api.dart';
+
 import 'package:trendspot_newes_app/features/signup/data/repos/signup_repo.dart';
-import 'package:trendspot_newes_app/features/signup/data/signup_model.dart';
 
 part 'signup_state.dart';
 

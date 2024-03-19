@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
+import 'package:trendspot_newes_app/features/home/data/just_for_you_model.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/custom_text.dart';
+import 'package:trendspot_newes_app/features/home/presention/widgets/just_for_you_item_list.dart';
 
-class CustomScrollItem extends StatelessWidget {
-  const CustomScrollItem({super.key});
-
+class CustomCategoryScrollItem extends StatelessWidget {
+  const CustomCategoryScrollItem({
+    super.key,
+    required this.title,
+    required this.author,
+  });
+  final String title, author;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -13,7 +19,7 @@ class CustomScrollItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AspectRatio(
-            aspectRatio: 269/269,
+            aspectRatio: 269 / 269,
             child: Container(
               decoration: ShapeDecoration(
                 image: const DecorationImage(
@@ -29,7 +35,10 @@ class CustomScrollItem extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const CustomText()
+          CustomText(
+            title: title,
+            author: author,
+          )
         ],
       ),
     );

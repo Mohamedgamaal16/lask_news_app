@@ -18,4 +18,5 @@ final class SignupFaliure extends SignupState {
 
   SignupFaliure({required this.errMSg});
 }
+
 final class UploadProfilePic extends SignupState {}

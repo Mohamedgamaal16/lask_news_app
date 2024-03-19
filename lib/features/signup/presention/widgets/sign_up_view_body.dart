@@ -61,7 +61,6 @@ class SignUpViewBody extends StatelessWidget {
                   labelText: 'Phone Number',
                   hintText: 'Write your phone number',
                   prefixIcon: const Icon(Icons.phone_android_outlined),
-                  
                 ),
                 const SizedBox(
                   height: 16,
@@ -91,13 +90,15 @@ class SignUpViewBody extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                        child:state is SignupLoading ? const CircularProgressIndicator(): CustomButton(
-                      onPressed: () {
-                        context.read<SignupCubit>().signUp();
-                      },
-                      color: const Color(0xFF96A0A6),
-                      labeName: 'Sign up',
-                    )),
+                        child: state is SignupLoading
+                            ? const CircularProgressIndicator()
+                            : CustomButton(
+                                onPressed: () {
+                                  context.read<SignupCubit>().signUp();
+                                },
+                                color: const Color(0xFF96A0A6),
+                                labeName: 'Sign up',
+                              )),
                   ],
                 ),
               ]),

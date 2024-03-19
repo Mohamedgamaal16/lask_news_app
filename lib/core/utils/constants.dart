@@ -6,6 +6,5 @@ class AppColors {
   static const Color kSecondaryTextColor = Color(0xFF6D6265);
   static const Color kBlueColor = Color(0xFF2D5BD0);
   static const Color kLightBrown = Color(0xFF6D6265);
-    static const Color kBackfroundColor = Color.fromARGB(255, 255, 255, 255);
-
+  static const Color kBackfroundColor = Color.fromARGB(255, 255, 255, 255);
 }

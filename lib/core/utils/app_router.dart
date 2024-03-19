@@ -7,8 +7,7 @@ import 'package:trendspot_newes_app/features/splash/presention/splash.dart';
 abstract class AppRouter {
   static const kLogInView = '/logIn';
   static const kSignUp = '/signUp';
-    static const kHomeView = '/homeView';
-
+  static const kHomeView = '/homeView';
 
   static final GoRouter router = GoRouter(routes: [
     // GoRoute(

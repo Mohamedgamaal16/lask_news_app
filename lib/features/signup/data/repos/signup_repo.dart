@@ -22,14 +22,14 @@ class SignUpRepo {
   }) async {
     try {
       final response = await api.post(EndPoint.signUp, isFormData: true, data: {
-        ApiKey.name: signUpName,
-        ApiKey.phone: signUpPhoneNumber,
-        ApiKey.email: signUpEmail,
-        ApiKey.password: signUpPassword,
-        ApiKey.confirmPassword: signUpconfirmPassword,
-        ApiKey.location:
+        RegestrionApiKey.name: signUpName,
+        RegestrionApiKey.phone: signUpPhoneNumber,
+        RegestrionApiKey.email: signUpEmail,
+        RegestrionApiKey.password: signUpPassword,
+        RegestrionApiKey.confirmPassword: signUpconfirmPassword,
+        RegestrionApiKey.location:
             '{"name":"methalfa","address":"meet halfa","coordinates":[30.1572709,31.224779]}',
-        ApiKey.profilePic: await uploadImageToAPI(profilePic)
+        RegestrionApiKey.profilePic: await uploadImageToAPI(profilePic)
       });
       final signUpModel = SignUpModel.fromJson(response);
 

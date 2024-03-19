@@ -6,11 +6,12 @@ import 'package:trendspot_newes_app/core/errors/exceptions.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
-
+  final String baseUrl;
   DioConsumer({
+    required this.baseUrl,
     required this.dio,
   }) {
-    dio.options.baseUrl = EndPoint.baseUrl;
+    dio.options.baseUrl = baseUrl;
     dio.interceptors.add(ApiInterceptor());
     dio.interceptors.add(LogInterceptor(
       request: true,

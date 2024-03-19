@@ -9,7 +9,8 @@ class CustomInputField extends StatefulWidget {
       this.suffixIcon = false,
       this.isDense,
       this.obscureText = false,
-      this.controller, required this.prefixIcon});
+      this.controller,
+      required this.prefixIcon});
 
   final String labelText;
   final String hintText;
@@ -50,7 +51,8 @@ class _CustomInputFieldState extends State<CustomInputField> {
               }
             },
             obscureText: (widget.obscureText && _obscureText),
-            decoration: InputDecoration(prefixIcon:widget.prefixIcon,
+            decoration: InputDecoration(
+                prefixIcon: widget.prefixIcon,
                 border: removeBorder(),
                 enabledBorder: removeBorder(),
                 focusedBorder: removeBorder(),
