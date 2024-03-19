@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:trendspot_newes_app/core/utils/app_router.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
 import 'package:trendspot_newes_app/core/utils/constants.dart';
 
@@ -32,23 +34,29 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               gap: 8,
               tabBackgroundColor: Colors.white24,
               backgroundColor: Colors.transparent,
-              tabs: const [
+              tabs: [
                 GButton(
                   icon: FontAwesomeIcons.house,
                   text: 'Home',
                   iconColor: Colors.white,
+                  onPressed: () {
+                    GoRouter.of(context).push('/');
+                  },
                 ),
                 GButton(
                   icon: FontAwesomeIcons.earthAsia,
                   text: 'Explore',
                   iconColor: Colors.white,
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRouter.kSeeMoreView);
+                  },
                 ),
-                GButton(
+                const GButton(
                   icon: FontAwesomeIcons.bookmark,
                   text: 'Bookmark',
                   iconColor: Colors.white,
                 ),
-                GButton(
+                const GButton(
                   icon: FontAwesomeIcons.user,
                   text: 'Profile',
                   iconColor: Colors.white,

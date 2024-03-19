@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trendspot_newes_app/core/utils/app_router.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
 
 class JustForYouHeader extends StatelessWidget {
@@ -13,9 +15,14 @@ class JustForYouHeader extends StatelessWidget {
           style: AppStyles.interStyleSemiBold24(context),
         ),
         const Spacer(),
-        Text(
-          'See More',
-          style: AppStyles.interStyleSemiBold16(context),
+        GestureDetector(
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kSeeMoreView);
+          },
+          child: Text(
+            'See More',
+            style: AppStyles.interStyleSemiBold16(context),
+          ),
         )
       ],
     );

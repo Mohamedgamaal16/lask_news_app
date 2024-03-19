@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
-import 'package:trendspot_newes_app/features/home/data/just_for_you_model.dart';
+import 'package:trendspot_newes_app/features/home/data/models/just_for_you_model.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/custom_text.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/just_for_you_item_list.dart';
 
@@ -9,8 +9,9 @@ class CustomCategoryScrollItem extends StatelessWidget {
     super.key,
     required this.title,
     required this.author,
+    required this.assetimage,
   });
-  final String title, author;
+  final String title, author,assetimage;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -22,9 +23,8 @@ class CustomCategoryScrollItem extends StatelessWidget {
             aspectRatio: 269 / 269,
             child: Container(
               decoration: ShapeDecoration(
-                image: const DecorationImage(
-                  image: AssetImage(
-                      'assets/images/language-studies-japan-1220x732.jpg'),
+                image:  DecorationImage(
+                  image: AssetImage(assetimage),
                   fit: BoxFit.fill,
                 ),
                 shape: RoundedRectangleBorder(

@@ -1,13 +1,3 @@
-// class JustForYouModel {
-//   final String title, author;
-
-//   JustForYouModel({
-//     required this.title,
-//     required this.author,
-//   });
-// }
-
-
 
 
 
@@ -16,20 +6,20 @@ class JustForYouModel {
   final String? author;
   final String title;
   final String? description;
-  final String url;
+  final String? url;
   final String? urlToImage ;
-  final DateTime publishedAt;
+  final DateTime? publishedAt;
   final String? content;
 
   JustForYouModel({
-    required this.source,
+     this.source,
     required this.author,
     required this.title,
-    required this.description,
-    required this.url,
+     this.description,
+     this.url,
     required this.urlToImage,
-    required this.publishedAt,
-    required this.content,
+     this.publishedAt,
+     this.content,
   });
 
   factory JustForYouModel.fromJson(Map<String, dynamic> json) {
