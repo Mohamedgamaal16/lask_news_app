@@ -13,7 +13,7 @@ class CustomScrollItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AspectRatio(
-            aspectRatio: 1,
+            aspectRatio: 269/269,
             child: Container(
               decoration: ShapeDecoration(
                 image: const DecorationImage(

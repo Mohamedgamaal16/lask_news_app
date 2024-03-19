@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:trendspot_newes_app/core/utils/constants.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/custom_app_bar.dart';
-import 'package:trendspot_newes_app/features/home/presention/widgets/custom_scroll_item.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/category_items_list.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/just_for_you_header.dart';
+import 'package:trendspot_newes_app/features/home/presention/widgets/just_for_you_item_list.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -37,7 +36,17 @@ class HomeViewBody extends StatelessWidget {
               padding: EdgeInsets.only(right: 32),
               child: JustForYouHeader(),
             ),
-          )
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
+            ),
+          ),
+          SliverToBoxAdapter(
+              child: AspectRatio(
+            aspectRatio: 1,
+            child: JustForYouItemList(),
+          )),
         ],
       ),
     );
