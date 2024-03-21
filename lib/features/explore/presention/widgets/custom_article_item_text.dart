@@ -6,9 +6,9 @@ class CustomArticleItemText extends StatelessWidget {
   const CustomArticleItemText({
     super.key,
     required this.title,
-    required this.author,
+    required this.date,
   });
-  final String title, author;
+  final String title, date;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class CustomArticleItemText extends StatelessWidget {
           height: 8,
         ),
         Text(
-          author,
+          date,
           style: AppStyles.interStyleRegular12(context),
            maxLines: 1,
           overflow: TextOverflow.ellipsis,

@@ -29,7 +29,7 @@ class SignInRepo {
       CacheHelper().saveData(
           key: RegestrionApiKey.id, value: decodedToken[RegestrionApiKey.id]);
       return Right(user);
-    } on ServerException catch (e) {
+    } on ServerRegesterException catch (e) {
       return Left(e.errModel.errorMessage);
     }
   }

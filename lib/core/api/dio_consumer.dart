@@ -1,16 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:trendspot_newes_app/core/api/api_consumer.dart';
 import 'package:trendspot_newes_app/core/api/api_interceptors.dart';
-import 'package:trendspot_newes_app/core/api/endpoint.dart';
 import 'package:trendspot_newes_app/core/errors/exceptions.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
   final String baseUrl;
-  DioConsumer({
+  final String exceptionType;
+  DioConsumer(  {
+   required this.dio,
+    required this.exceptionType,
     required this.baseUrl,
-    required this.dio,
-  }) {
+  }) : super(dio) {
     dio.options.baseUrl = baseUrl;
     dio.interceptors.add(ApiInterceptor());
     dio.interceptors.add(LogInterceptor(
@@ -37,7 +38,11 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      handleDioExceptions(e);
+      if (exceptionType == 'News') {
+        handleNewsDioExceptions(e);
+      } else {
+        handleRegesterDioExceptions(e);
+      }
     }
   }
 
@@ -56,7 +61,11 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      handleDioExceptions(e);
+      if (exceptionType == 'News') {
+        handleNewsDioExceptions(e);
+      } else {
+        handleRegesterDioExceptions(e);
+      }
     }
   }
 
@@ -75,7 +84,11 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      handleDioExceptions(e);
+      if (exceptionType == 'News') {
+        handleNewsDioExceptions(e);
+      } else {
+        handleRegesterDioExceptions(e);
+      }
     }
   }
 
@@ -94,7 +107,11 @@ class DioConsumer extends ApiConsumer {
       );
       return response.data;
     } on DioException catch (e) {
-      handleDioExceptions(e);
+      if (exceptionType == 'News') {
+        handleNewsDioExceptions(e);
+      } else {
+        handleRegesterDioExceptions(e);
+      }
     }
   }
 }

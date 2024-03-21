@@ -20,7 +20,7 @@ class LogInView extends StatelessWidget {
             child: BlocProvider(
               create: (context) => SigninCubit(SignInRepo(
                   api: DioConsumer(
-                      dio: Dio(), baseUrl: EndPoint.regestrionBaseUrl))),
+                      dio: Dio(), baseUrl: EndPoint.regestrionBaseUrl, exceptionType: 'sign'))),
               child: const SingleChildScrollView(child: LogInViewBody()),
             ),
           )),

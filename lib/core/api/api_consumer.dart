@@ -1,4 +1,8 @@
+import 'package:dio/src/dio.dart';
+
 abstract class ApiConsumer {
+  ApiConsumer(Dio dio);
+
   Future<dynamic> get(
     String path, {
     Object? data,

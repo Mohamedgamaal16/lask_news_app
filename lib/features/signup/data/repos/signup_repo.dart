@@ -34,7 +34,7 @@ class SignUpRepo {
       final signUpModel = SignUpModel.fromJson(response);
 
       return Right(signUpModel);
-    } on ServerException catch (e) {
+    } on ServerRegesterException catch (e) {
       return Left(e.errModel.errorMessage);
     }
   }

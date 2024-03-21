@@ -15,13 +15,13 @@ class JustForYouItemList extends StatelessWidget {
             aspectRatio: 269 / 385,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: state.news.length,
+                itemCount: 8,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.only(right: 24.0),
                     child: CustomForYouScrollItem(
                       title: state.news[index].title,
-                      author: state.news[index].author?.toString() ?? "",
+                      author: state.news[index].author?.toString() ?? "Lask News",
                       imageUrl: state.news[index].urlToImage ??
                           'https://play-lh.googleusercontent.com/tuOKYu0gjp7YgLYn0eglI4j7c100lQjMLcRGnd0RKWx_WBBSgP4f1BNb1_EwCffYqtM',
                     ),
@@ -31,9 +31,9 @@ class JustForYouItemList extends StatelessWidget {
         } else if (state is JustForYouLoading) {
           return const Center(child: CircularProgressIndicator());
         } else if (state is JustForYouFaliure) {
-          return const Text('faliure');
+          return Text(state.errMsg);
         } else {
-          return const Text('gh');
+          return const Text('there was an error please try again');
         }
       },
     );

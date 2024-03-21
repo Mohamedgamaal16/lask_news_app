@@ -1,51 +1,105 @@
 import 'package:dio/dio.dart';
-import 'package:trendspot_newes_app/core/errors/error_model.dart';
+import 'package:trendspot_newes_app/core/errors/models/error_news_model.dart';
+import 'package:trendspot_newes_app/core/errors/models/error_regiester_model.dart';
 
-class ServerException implements Exception {
-  final ErrorModel errModel;
+class ServerRegesterException implements Exception {
+  final ErrorRegesterModel errModel;
 
-  ServerException({required this.errModel});
+  ServerRegesterException({required this.errModel});
 }
 
-void handleDioExceptions(DioException e) {
+void handleRegesterDioExceptions(DioException e) {
   switch (e.type) {
     case DioExceptionType.connectionTimeout:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.sendTimeout:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.receiveTimeout:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.badCertificate:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.cancel:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.connectionError:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.unknown:
-      throw ServerException(errModel: ErrorModel.fromJson(e.response!.data));
+      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.badResponse:
       switch (e.response?.statusCode) {
         case 400: // Bad request
-          throw ServerException(
-              errModel: ErrorModel.fromJson(e.response!.data));
+          throw ServerRegesterException(
+              errModel: ErrorRegesterModel.fromJson(e.response!.data));
         case 401: //unauthorized
-          throw ServerException(
-              errModel: ErrorModel.fromJson(e.response!.data));
+          throw ServerRegesterException(
+              errModel: ErrorRegesterModel.fromJson(e.response!.data));
         case 403: //forbidden
-          throw ServerException(
-              errModel: ErrorModel.fromJson(e.response!.data));
+          throw ServerRegesterException(
+              errModel: ErrorRegesterModel.fromJson(e.response!.data));
         case 404: //not found
-          throw ServerException(
-              errModel: ErrorModel.fromJson(e.response!.data));
+          throw ServerRegesterException(
+              errModel: ErrorRegesterModel.fromJson(e.response!.data));
         case 409: //cofficient
-          throw ServerException(
-              errModel: ErrorModel.fromJson(e.response!.data));
+          throw ServerRegesterException(
+              errModel: ErrorRegesterModel.fromJson(e.response!.data));
         case 422: //  Unprocessable Entity
-          throw ServerException(
-              errModel: ErrorModel.fromJson(e.response!.data));
+          throw ServerRegesterException(
+              errModel: ErrorRegesterModel.fromJson(e.response!.data));
         case 504: // Server exception
-          throw ServerException(
-              errModel: ErrorModel.fromJson(e.response!.data));
+          throw ServerRegesterException(
+              errModel: ErrorRegesterModel.fromJson(e.response!.data));
+      }
+  }
+}
+
+
+
+
+
+class ServerNewsExceptions implements Exception {
+  final ErrorNewsModel errModel;
+
+  ServerNewsExceptions({required this.errModel});
+}
+
+void handleNewsDioExceptions(DioException e) {
+  switch (e.type) {
+    case DioExceptionType.connectionTimeout:
+      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+    case DioExceptionType.sendTimeout:
+      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+    case DioExceptionType.receiveTimeout:
+      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+    case DioExceptionType.badCertificate:
+      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+    case DioExceptionType.cancel:
+      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+    case DioExceptionType.connectionError:
+      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+    case DioExceptionType.unknown:
+      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+    case DioExceptionType.badResponse:
+      switch (e.response?.statusCode) {
+        case 400: // Bad request
+          throw ServerNewsExceptions(
+              errModel: ErrorNewsModel.fromJson(e.response!.data));
+        case 401: //unauthorized
+          throw ServerNewsExceptions(
+              errModel: ErrorNewsModel.fromJson(e.response!.data));
+        case 403: //forbidden
+          throw ServerNewsExceptions(
+              errModel: ErrorNewsModel.fromJson(e.response!.data));
+        case 404: //not found
+          throw ServerNewsExceptions(
+              errModel: ErrorNewsModel.fromJson(e.response!.data));
+        case 409: //cofficient
+          throw ServerNewsExceptions(
+              errModel: ErrorNewsModel.fromJson(e.response!.data));
+        case 422: //  Unprocessable Entity
+          throw ServerNewsExceptions(
+              errModel: ErrorNewsModel.fromJson(e.response!.data));
+        case 504: // Server exception
+          throw ServerNewsExceptions(
+              errModel: ErrorNewsModel.fromJson(e.response!.data));
       }
   }
 }

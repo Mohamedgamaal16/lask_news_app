@@ -21,7 +21,7 @@ class SignUpView extends StatelessWidget {
                 child: BlocProvider(
               create: (context) => SignupCubit(SignUpRepo(
                   api: DioConsumer(
-                      baseUrl: EndPoint.regestrionBaseUrl, dio: Dio()))),
+                      baseUrl: EndPoint.regestrionBaseUrl, dio: Dio(), exceptionType: 'sign'))),
               child: const SignUpViewBody(),
             )),
           )),

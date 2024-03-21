@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:trendspot_newes_app/core/api/api_consumer.dart';
 import 'package:trendspot_newes_app/core/api/endpoint.dart';
+import 'package:trendspot_newes_app/core/errors/exceptions.dart';
 import 'package:trendspot_newes_app/features/home/data/models/just_for_you_model.dart';
 import 'package:trendspot_newes_app/features/home/data/repos/home_repos.dart';
 
@@ -21,8 +22,8 @@ for (var item in response['articles']) {
         articles.add(JustForYouModel.fromJson(item));
       }
       return Right(articles);
-    } on Exception catch (e) {
-      return const Left('error from fetchJustForYouNews');
+    } on ServerRegesterException catch (e) {
+      return  Left(e.errModel.errorMessage);
     }
   }
 }

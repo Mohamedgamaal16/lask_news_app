@@ -3,23 +3,23 @@ import 'package:trendspot_newes_app/features/explore/presention/widgets/custom_a
 import 'package:trendspot_newes_app/features/explore/presention/widgets/custom_pic.dart';
 
 class CustomArticleItem extends StatelessWidget {
-  const CustomArticleItem({super.key});
-
+  const CustomArticleItem({super.key, required this.date, required this.title, required this.imageUrl});
+final String date,title,imageUrl;
   @override
   Widget build(BuildContext context) {
     return  SizedBox(
       width: MediaQuery.of(context).size.width*.85,
       height: MediaQuery.of(context).size.width*.2,
-      child: const Row(
+      child:  Row(
         children: [
           Expanded(
             child: CustomArticleItemText(
-              title: 'hijjkcxfsssssssshghhijjkcxfsssssssshghhijjkcxfsssssssshghhijjkcxfsssssssshgh',
-              author: 'mhaifsadk',
+              title: title,
+              date: date,
             ),
           ),
-          SizedBox(width: 16,),
-          AspectRatio(aspectRatio: 1, child: CustomPic()),
+          const SizedBox(width: 16,),
+          AspectRatio(aspectRatio: 1, child: CustomPic(imageUrl: imageUrl,)),
         ],
       ),
     );
