@@ -51,10 +51,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                     GoRouter.of(context).push(AppRouter.kSeeMoreView);
                   },
                 ),
-                const GButton(
+                 GButton(
                   icon: FontAwesomeIcons.bookmark,
                   text: 'Bookmark',
                   iconColor: Colors.white,
+                   onPressed: () {
+                    GoRouter.of(context).push(AppRouter.kExpolreSingleItemDiplay);
+                  },
                 ),
                 const GButton(
                   icon: FontAwesomeIcons.user,

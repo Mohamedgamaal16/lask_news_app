@@ -22,8 +22,8 @@ for (var item in response['articles']) {
         articles.add(JustForYouModel.fromJson(item));
       }
       return Right(articles);
-    } on ServerRegesterException catch (e) {
-      return  Left(e.errModel.errorMessage);
+    } on ServerNewsExceptions catch (e) {
+      return  Left(e.errModel.message);
     }
   }
 }

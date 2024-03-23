@@ -11,9 +11,9 @@ class ErrorNewsModel {
 
   factory ErrorNewsModel.fromJson(Map<String, dynamic> json) {
     return ErrorNewsModel(
-      status: json['status'] as String,
-      code: json['code'] as String,
-      message: json['message'] as String,
+      status: json['status'],
+      code: json['code'],
+      message: json['message'],
     );
   }
 }

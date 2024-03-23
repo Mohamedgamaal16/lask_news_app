@@ -92,13 +92,13 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle merriweatherStyleRegular16(BuildContext context) {
+  static TextStyle merriweatherStyleRegular18(BuildContext context) {
     return TextStyle(
-      color: Color(0xFF231F20),
-      fontSize: getResponsiveFontSize(context, fontSize: 16),
-      fontFamily: 'Merriweather',
-      fontWeight: FontWeight.w400,
-    );
+        color: const Color(0xFF231F20),
+        fontSize: getResponsiveFontSize(context, fontSize: 18),
+        fontFamily: 'Merriweather',
+        fontWeight: FontWeight.w400,
+        letterSpacing: 1.5);
   }
 
   static TextStyle schibstedGroteskStyleRegular18(BuildContext context) {

@@ -74,7 +74,7 @@ void handleNewsDioExceptions(DioException e) {
     case DioExceptionType.cancel:
       throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
     case DioExceptionType.connectionError:
-      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+      throw ServerNewsExceptions(errModel: ErrorNewsModel(code: 'by me', status: '0', message: 'connectionError'));
     case DioExceptionType.unknown:
       throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
     case DioExceptionType.badResponse:
