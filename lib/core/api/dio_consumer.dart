@@ -7,8 +7,8 @@ class DioConsumer extends ApiConsumer {
   final Dio dio;
   final String baseUrl;
   final String exceptionType;
-  DioConsumer(  {
-   required this.dio,
+  DioConsumer({
+    required this.dio,
     required this.exceptionType,
     required this.baseUrl,
   }) : super(dio) {

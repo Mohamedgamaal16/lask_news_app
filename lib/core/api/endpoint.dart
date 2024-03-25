@@ -4,7 +4,11 @@ class EndPoint {
   static String signUp = "user/signup";
   static String justForYouBaseUrl = "https://newsapi.org/v2/";
   static String topHeadlines = "top-headlines";
-
+  // static String categories = "top-headlines";
+  // category=science
+ static String categories(category) {
+    return "$topHeadlines?category=$category";
+  }
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }

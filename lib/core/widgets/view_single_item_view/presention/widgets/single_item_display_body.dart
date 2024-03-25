@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
 import 'package:trendspot_newes_app/core/widgets/view_single_item_view/data/explore_single_item_model.dart';
 
-class ExpolreSingleItemDiplayBody extends StatelessWidget {
-  const ExpolreSingleItemDiplayBody({
+class SingleItemDiplayBody extends StatelessWidget {
+  const SingleItemDiplayBody({
     super.key,
     required this.exploreSingleItemModel,
   });
-  final ExploreSingleItemModel exploreSingleItemModel;
+  final SingleItemModel exploreSingleItemModel;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class TextInContainer extends StatelessWidget {
     super.key,
     required this.exploreSingleItemModel,
   });
-  final ExploreSingleItemModel exploreSingleItemModel;
+  final SingleItemModel exploreSingleItemModel;
 
   @override
   Widget build(BuildContext context) {

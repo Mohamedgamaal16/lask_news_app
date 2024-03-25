@@ -17,4 +17,5 @@ class JustForYouCubit extends Cubit<JustForYouState> {
       (news) => emit(JustForYouSuccess(news: news)),
     );
   }
+
 }

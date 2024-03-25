@@ -17,14 +17,33 @@ class HomeRepoimplemntion implements HomeRepos {
         'apiKey': '61af8e89ce75458f81a0ddeab9824a9d'
       });
 
-           List<JustForYouModel> articles = [];
-for (var item in response['articles']) {
+      List<JustForYouModel> articles = [];
+      for (var item in response['articles']) {
         articles.add(JustForYouModel.fromJson(item));
       }
       return Right(articles);
     } on ServerNewsExceptions catch (e) {
-      return  Left(e.errModel.message);
+      return Left(e.errModel.message);
+    }
+  }
+
+  @override
+  Future<Either<String, List<JustForYouModel>>> fectchCategoriesNews(
+      {required String category}) async {
+    try {
+      final response = await api.get(EndPoint.categories(category),
+          queryParamters: {
+            'country': 'us',
+            'apiKey': '61af8e89ce75458f81a0ddeab9824a9d'
+          });
+      List<JustForYouModel> articles = [];
+
+      for (var item in response['articles']) {
+        articles.add(JustForYouModel.fromJson(item));
+      }
+      return Right(articles);
+    } on ServerNewsExceptions catch (e) {
+      return Left(e.errModel.message);
     }
   }
 }
-

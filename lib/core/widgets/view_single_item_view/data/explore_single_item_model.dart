@@ -1,7 +1,7 @@
-class ExploreSingleItemModel {
+class SingleItemModel {
   final String title, detailes, date, authorName,image;
 
-  ExploreSingleItemModel(
+  SingleItemModel(
       {required this.title,
       required this.detailes,
       required this.date,

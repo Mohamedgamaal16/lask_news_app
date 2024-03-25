@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trendspot_newes_app/features/category/presention/category_view.dart';
 import 'package:trendspot_newes_app/features/home/data/models/categories_model.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/custom_category_item.dart';
 
@@ -44,10 +45,18 @@ class CategoriesItemsList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.only(right: 24.0),
-              child: CustomCategoryScrollItem(
-                title: categoriesList[index].category,
-                author: categoriesList[index].subTitle,
-                assetimage: categoriesList[index].assetImage,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (builder) {
+                    return CategoryView(title: categoriesList[index].category);
+                  }));
+                },
+                child: CustomCategoryScrollItem(
+                  title: categoriesList[index].category,
+                  author: categoriesList[index].subTitle,
+                  assetimage: categoriesList[index].assetImage,
+                ),
               ),
             );
           }),
