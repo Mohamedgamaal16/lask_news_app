@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trendspot_newes_app/core/widgets/custom_articles_item/custom_articel_item.dart';
 
-class CustomArticlesList extends StatelessWidget {
-  const CustomArticlesList({super.key});
+class CustomCategoryArticlesList extends StatelessWidget {
+  const CustomCategoryArticlesList({super.key});
   static int activeIndex = -1;
   @override
   Widget build(BuildContext context) {

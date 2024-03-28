@@ -72,3 +72,20 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     );
   }
 }
+
+
+ // onTabChange: (value) {
+              //   if (value == 0) {
+              //     setState(() {
+              //       GoRouter.of(context).push('/');
+              //     });
+              //   } else if (value == 1) {
+              //     setState(() {
+              //       GoRouter.of(context).push(AppRouter.kSeeMoreView);
+              //     });
+              //   } else {
+              //     setState(() {
+              //       GoRouter.of(context).push(AppRouter.kSeeMoreView);
+              //     });
+              //   }
+              // },

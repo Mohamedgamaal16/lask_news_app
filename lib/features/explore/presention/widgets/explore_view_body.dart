@@ -7,18 +7,18 @@ class ExploreViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(
+    return Padding(
+      padding: const EdgeInsets.only(
         left: 32.0,
       ),
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.only(right: 32, bottom: 24, top: 24),
-              child: CustomAppBar(title: 'Explore',),
-            ),
-          ),
+          const SliverToBoxAdapter(
+              child: Padding(
+                  padding: EdgeInsets.only(right: 32, bottom: 24, top: 24),
+                  child: CustomAppBar(
+                    title: 'Explore',
+                  ))),
           SliverFillRemaining(child: CustomArticlesList()),
         ],
       ),

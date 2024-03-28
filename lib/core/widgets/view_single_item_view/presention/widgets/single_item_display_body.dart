@@ -60,20 +60,24 @@ class TextInContainer extends StatelessWidget {
         const SizedBox(
           height: 19,
         ),
-        Row(
-          children: [
-            Text(
-              exploreSingleItemModel.authorName,
-              style: AppStyles.interStyleRegular12(context),
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            Text(
-              exploreSingleItemModel.date,
-              style: AppStyles.interStyleRegular12(context),
-            )
-          ],
+        SizedBox(width: MediaQuery.of(context).size.width*1,
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  exploreSingleItemModel.authorName,
+                  style: AppStyles.interStyleRegular12(context),
+                ),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              Text(
+                exploreSingleItemModel.date,
+                style: AppStyles.interStyleRegular12(context),
+              )
+            ],
+          ),
         ),
         const SizedBox(
           height: 27,
@@ -81,6 +85,9 @@ class TextInContainer extends StatelessWidget {
         Text(
           exploreSingleItemModel.detailes,
           style: AppStyles.merriweatherStyleRegular18(context),
+        ),
+        const SizedBox(
+          height: 30,
         ),
       ],
     );

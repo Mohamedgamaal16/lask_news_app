@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trendspot_newes_app/features/home/presention/widgets/custom_app_bar.dart';
+import 'package:trendspot_newes_app/core/widgets/custom_app_bar.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/category_items_list.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/just_for_you_header.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/just_for_you_item_list.dart';
@@ -9,7 +9,7 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return  Padding(
       padding: EdgeInsets.only(
         left: 32.0,
       ),
@@ -18,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.only(right: 32, bottom: 24, top: 24),
-              child: CustomAppBar(),
+              child: CustomAppBar(title: 'LASK',color: 0,),
             ),
           ),
           SliverToBoxAdapter(
@@ -46,7 +46,8 @@ class HomeViewBody extends StatelessWidget {
               child: AspectRatio(
             aspectRatio: 1,
             child: JustForYouItemList(),
-          )),
+          )
+          ),
         ],
       ),
     );

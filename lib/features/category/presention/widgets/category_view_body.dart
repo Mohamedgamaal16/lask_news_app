@@ -22,6 +22,7 @@ class CategoryViewBody extends StatelessWidget {
             ),
           ),
           const SliverFillRemaining(child: CategoryItemList()),
+          
         ],
       ),
     );
