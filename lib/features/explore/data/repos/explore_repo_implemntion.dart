@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:trendspot_newes_app/core/api/api_consumer.dart';
 import 'package:trendspot_newes_app/core/api/endpoint.dart';
 import 'package:trendspot_newes_app/core/errors/exceptions.dart';
-import 'package:trendspot_newes_app/features/explore/data/models/article_model.dart';
+import 'package:trendspot_newes_app/core/models/article_model.dart';
 import 'package:trendspot_newes_app/features/explore/data/repos/explore_repo.dart';
 
 class ExploreRepoImplemntion implements ExploreRepo {

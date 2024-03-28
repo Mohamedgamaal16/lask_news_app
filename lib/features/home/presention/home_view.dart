@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
             child: BlocProvider(
           create: (context) => JustForYouCubit(HomeRepoimplemntion(
               api: DioConsumer(
-                  baseUrl: EndPoint.justForYouBaseUrl,
+                  baseUrl: EndPoint.newsBaseUrl,
                   dio: Dio(),
                   exceptionType: 'News')))
             ..displayJustForYouData(),

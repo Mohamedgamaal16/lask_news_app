@@ -21,7 +21,7 @@ class CategoryView extends StatelessWidget {
             api: DioConsumer(
                 dio: Dio(),
                 exceptionType: 'News',
-                baseUrl: EndPoint.justForYouBaseUrl)))
+                baseUrl: EndPoint.newsBaseUrl)))
           ..displayCategoryData(category: title),
         child: CategoryViewBody(
           title: title,

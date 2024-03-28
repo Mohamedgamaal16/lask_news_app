@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:trendspot_newes_app/features/explore/data/models/article_model.dart';
+import 'package:trendspot_newes_app/core/models/article_model.dart';
 import 'package:trendspot_newes_app/features/explore/data/repos/explore_repo.dart';
 
 part 'explore_article_state.dart';

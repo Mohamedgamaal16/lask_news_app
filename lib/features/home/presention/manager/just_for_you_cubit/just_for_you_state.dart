@@ -6,7 +6,7 @@ sealed class JustForYouState {}
 final class JustForYouInitial extends JustForYouState {}
 
 final class JustForYouSuccess extends JustForYouState {
-  final List<JustForYouModel> news;
+  final List<ArticleModel> news;
 
   JustForYouSuccess({required this.news});
 }

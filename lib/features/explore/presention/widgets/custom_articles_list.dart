@@ -6,20 +6,13 @@ import 'package:trendspot_newes_app/core/widgets/custom_articles_item/custom_art
 import 'package:trendspot_newes_app/core/widgets/view_single_item_view/presention/single_item_display.dart';
 
 class CustomArticlesList extends StatelessWidget {
-  CustomArticlesList({super.key});
-  final List<String> titlesList = [];
+  const CustomArticlesList({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ExploreArticleCubit, ExploreArticleState>(
       builder: (context, state) {
         if (state is ExploreArticleSuccess) {
-          final List<String> titlesList = [];
-
-          state.news.forEach((article) {
-            titlesList.add(article.title);
-          });
-
           return ListView.builder(
               itemCount: state.news.length,
               itemBuilder: (itemBuilder, index) {

@@ -15,20 +15,20 @@ class ExploreView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return  SafeArea(
       child: Scaffold(
-        bottomNavigationBar: CustomBottomNavigationBar(),
+        bottomNavigationBar: const CustomBottomNavigationBar(),
         body:
-            // BlocProvider(
-            //   create: (context) => ExploreArticleCubit(ExploreRepoImplemntion(
-            //       api: DioConsumer(
-            //           exceptionType: 'News',
-            //           baseUrl: EndPoint.justForYouBaseUrl,
-            //           dio: Dio())))
-            //     ..displayExploreData(),
-            //   child:
-            ExploreViewBody(),
+            BlocProvider(
+              create: (context) => ExploreArticleCubit(ExploreRepoImplemntion(
+                  api: DioConsumer(
+                      exceptionType: 'News',
+                      baseUrl: EndPoint.newsBaseUrl,
+                      dio: Dio())))
+                ..displayExploreData(),
+              child:
+            const ExploreViewBody(),
       ),
-    );
+     ) );
   }
 }

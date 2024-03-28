@@ -2,10 +2,15 @@ class EndPoint {
   static String regestrionBaseUrl = "https://food-api-omega.vercel.app/api/v1/";
   static String signIn = "user/signin";
   static String signUp = "user/signup";
-  static String justForYouBaseUrl = "https://newsapi.org/v2/";
+  static String newsBaseUrl = "https://newsapi.org/v2/";
   static String topHeadlines = "top-headlines";
-  // static String categories = "top-headlines";
-  // category=science
+  // static String search = "top-headlines";
+
+
+
+  static String search(search) {
+    return "everything?q=$search";
+  }
  static String categories(category) {
     return "$topHeadlines?category=$category";
   }

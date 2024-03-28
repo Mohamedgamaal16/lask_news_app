@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
-import 'package:trendspot_newes_app/features/home/data/models/just_for_you_model.dart';
 
 class CustomArticleItemText extends StatelessWidget {
   const CustomArticleItemText({

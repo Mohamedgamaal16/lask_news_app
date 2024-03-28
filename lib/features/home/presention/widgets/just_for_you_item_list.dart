@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trendspot_newes_app/core/widgets/view_single_item_view/data/explore_single_item_model.dart';
 import 'package:trendspot_newes_app/core/widgets/view_single_item_view/presention/single_item_display.dart';
-import 'package:trendspot_newes_app/features/home/data/models/just_for_you_model.dart';
 import 'package:trendspot_newes_app/features/home/presention/manager/just_for_you_cubit/just_for_you_cubit.dart';
 import 'package:trendspot_newes_app/features/home/presention/widgets/custom_for_you_scroll_item.dart';
 
