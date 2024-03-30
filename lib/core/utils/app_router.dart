@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:trendspot_newes_app/features/home/presention/home_view.dart';
+import 'package:trendspot_newes_app/core/widgets/custom_bottom_navigation_bar.dart';
 import 'package:trendspot_newes_app/features/explore/presention/explore_view.dart';
 import 'package:trendspot_newes_app/features/signin/presention/login_view.dart';
 import 'package:trendspot_newes_app/features/signup/presention/signup_view.dart';
@@ -27,7 +27,7 @@ abstract class AppRouter {
     GoRoute(
       path: '/',
       // path: kHomeView,
-      builder: (context, state) => const HomeView(),
+      builder: (context, state) => const CustomBottomNavigationBar(),
     ),
     GoRoute(
       path: kSeeMoreView,
