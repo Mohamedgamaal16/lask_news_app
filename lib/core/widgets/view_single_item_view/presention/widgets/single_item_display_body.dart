@@ -38,10 +38,8 @@ class SingleItemDiplayBody extends StatelessWidget {
               top: MediaQuery.of(context).size.height * .3,
               left: 0,
               right: 0,
-              child: Expanded(
-                child: TextInContainer(
-                  exploreSingleItemModel: exploreSingleItemModel,
-                ),
+              child: TextInContainer(
+                exploreSingleItemModel: exploreSingleItemModel,
               ),
             )
           ],
