@@ -9,7 +9,7 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return  const Padding(
       padding: EdgeInsets.only(
         left: 32.0,
       ),
@@ -47,6 +47,10 @@ class HomeViewBody extends StatelessWidget {
             aspectRatio: 1,
             child: JustForYouItemList(),
           )
+          ), SliverToBoxAdapter(
+            child: SizedBox(
+              height: 80,
+            ),
           ),
         ],
       ),
