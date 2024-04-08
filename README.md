@@ -1,11 +1,14 @@
-# trendspot_newes_app
+# lask_newes_app
 
 A new Flutter project.
 
 ## Getting Started
+## sign in with email happytech.mohammedsaeed@gmail.com
+## sign in with password happytech.mohammedsaeed@gmail.com
+
+There is an error in the registration server from BackEnd, and we are working on it. Log in to the given email 
 
 This project is a starting point for a Flutter application.
-
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
