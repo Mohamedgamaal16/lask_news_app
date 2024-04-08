@@ -11,19 +11,26 @@ class ServerRegesterException implements Exception {
 void handleRegesterDioExceptions(DioException e) {
   switch (e.type) {
     case DioExceptionType.connectionTimeout:
-      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
+      throw ServerRegesterException(
+          errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.sendTimeout:
-      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
+      throw ServerRegesterException(
+          errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.receiveTimeout:
-      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
+      throw ServerRegesterException(
+          errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.badCertificate:
-      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
+      throw ServerRegesterException(
+          errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.cancel:
-      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
+      throw ServerRegesterException(
+          errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.connectionError:
-      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
+      throw ServerRegesterException(
+          errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.unknown:
-      throw ServerRegesterException(errModel: ErrorRegesterModel.fromJson(e.response!.data));
+      throw ServerRegesterException(
+          errModel: ErrorRegesterModel.fromJson(e.response!.data));
     case DioExceptionType.badResponse:
       switch (e.response?.statusCode) {
         case 400: // Bad request
@@ -46,14 +53,11 @@ void handleRegesterDioExceptions(DioException e) {
               errModel: ErrorRegesterModel.fromJson(e.response!.data));
         case 504: // Server exception
           throw ServerRegesterException(
-              errModel: ErrorRegesterModel.fromJson(e.response!.data));
+              errModel: ErrorRegesterModel(
+                  status: 504, errorMessage: 'Server connectivity issues'));
       }
   }
 }
-
-
-
-
 
 class ServerNewsExceptions implements Exception {
   final ErrorNewsModel errModel;
@@ -64,19 +68,27 @@ class ServerNewsExceptions implements Exception {
 void handleNewsDioExceptions(DioException e) {
   switch (e.type) {
     case DioExceptionType.connectionTimeout:
-      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+      throw ServerNewsExceptions(
+          errModel: ErrorNewsModel.fromJson(e.response!.data));
     case DioExceptionType.sendTimeout:
-      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+      throw ServerNewsExceptions(
+          errModel: ErrorNewsModel.fromJson(e.response!.data));
     case DioExceptionType.receiveTimeout:
-      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+      throw ServerNewsExceptions(
+          errModel: ErrorNewsModel.fromJson(e.response!.data));
     case DioExceptionType.badCertificate:
-      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+      throw ServerNewsExceptions(
+          errModel: ErrorNewsModel.fromJson(e.response!.data));
     case DioExceptionType.cancel:
-      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+      throw ServerNewsExceptions(
+          errModel: ErrorNewsModel.fromJson(e.response!.data));
     case DioExceptionType.connectionError:
-      throw ServerNewsExceptions(errModel: ErrorNewsModel(code: 'by me', status: '0', message: 'connectionError'));
+      throw ServerNewsExceptions(
+          errModel: ErrorNewsModel(
+              code: 'by me', status: '0', message: 'connectionError'));
     case DioExceptionType.unknown:
-      throw ServerNewsExceptions(errModel: ErrorNewsModel.fromJson(e.response!.data));
+      throw ServerNewsExceptions(
+          errModel: ErrorNewsModel.fromJson(e.response!.data));
     case DioExceptionType.badResponse:
       switch (e.response?.statusCode) {
         case 400: // Bad request

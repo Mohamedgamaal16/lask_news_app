@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:trendspot_newes_app/core/utils/app_styles.dart';
 
 class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({super.key});
+  const ProfileHeader({super.key, required this.name, required this.pic});
+  final String name, pic;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +16,8 @@ class ProfileHeader extends StatelessWidget {
             width: 120,
             height: 120,
             decoration: ShapeDecoration(
-              image: const DecorationImage(
-                image: AssetImage("assets/images/business.jpg"),
+              image: DecorationImage(
+                image: NetworkImage(pic),
                 fit: BoxFit.cover,
               ),
               shape: RoundedRectangleBorder(
@@ -32,7 +33,7 @@ class ProfileHeader extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
-              'Dianne Russell',
+              name,
               style: AppStyles.interStyleSemiBold24(context),
             ),
           )

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trendspot_newes_app/core/utils/app_router.dart';
 import 'package:trendspot_newes_app/core/widgets/custom_button.dart';
 import 'package:trendspot_newes_app/core/widgets/custom_input_field.dart';
 import 'package:trendspot_newes_app/features/signup/presention/manager/signup_cubit/signup_cubit.dart';
@@ -17,6 +19,7 @@ class SignUpViewBody extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(state.message),
           ));
+          GoRouter.of(context).push(AppRouter.kBottomNavBar);
         } else if (state is SignupFaliure) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(state.errMSg),

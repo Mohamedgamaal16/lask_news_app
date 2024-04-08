@@ -8,7 +8,7 @@ part 'explore_article_state.dart';
 class ExploreArticleCubit extends Cubit<ExploreArticleState> {
   ExploreArticleCubit(this.exploreRepo) : super(ExploreArticleInitial());
   final ExploreRepo exploreRepo;
-  
+
   Future<void> displayExploreData() async {
     emit(ExploreArticleLoading());
     var response = await exploreRepo.fetchExploreArticles();

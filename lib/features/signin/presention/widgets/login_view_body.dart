@@ -21,7 +21,7 @@ class LogInViewBody extends StatelessWidget {
               content: Text("success"),
             ),
           );
-          GoRouter.of(context).push(AppRouter.kHomeView);
+          GoRouter.of(context).push(AppRouter.kBottomNavBar);
         } else if (state is SigninFaliure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
