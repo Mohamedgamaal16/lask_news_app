@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 ## sign in with email happytech.mohammedsaeed@gmail.com
-## sign in with password happytech.mohammedsaeed@gmail.com
+## sign in with password 123456789
 
 There is an error in the registration server from BackEnd, and we are working on it. Log in to the given email 
 
