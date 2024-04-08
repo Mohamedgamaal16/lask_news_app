@@ -28,8 +28,8 @@ abstract class AppRouter {
     GoRoute(
       path: '/',
       // path: kHomeView,
-      // builder: (context, state) => const CustomBottomNavigationBar(),
-            builder: (context, state) => const HomeView(),
+      builder: (context, state) => const CustomBottomNavigationBar(),
+            // builder: (context, state) => const HomeView(),
 
     ),
     GoRoute(

@@ -91,9 +91,11 @@ class TextInContainer extends StatelessWidget {
                     const SizedBox(
                       width: 8,
                     ),
-                    Text(
-                      exploreSingleItemModel.date,
-                      style: AppStyles.interStyleRegular12(context),
+                    Expanded(
+                      child: Text(
+                        exploreSingleItemModel.date,
+                        style: AppStyles.interStyleRegular12(context),
+                      ),
                     )
                   ],
                 ),

@@ -7,6 +7,7 @@ import 'package:trendspot_newes_app/core/utils/app_styles.dart';
 
 import 'package:trendspot_newes_app/features/explore/presention/explore_view.dart';
 import 'package:trendspot_newes_app/features/home/presention/home_view.dart';
+import 'package:trendspot_newes_app/features/profile/presention/profile_view.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
@@ -18,7 +19,11 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _currentIndex = 0;
-  final List<Widget> _widgetsOptions = [const HomeView(), const ExploreView()];
+  final List<Widget> _widgetsOptions = [
+    const HomeView(),
+    const ExploreView(),
+    const ProfileView()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,11 +65,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                         GButton(
                           icon: FontAwesomeIcons.earthAsia,
                           text: 'Explore',
-                          iconColor: Colors.black,
-                        ),
-                        GButton(
-                          icon: FontAwesomeIcons.bookmark,
-                          text: 'Bookmark',
                           iconColor: Colors.black,
                         ),
                         GButton(
